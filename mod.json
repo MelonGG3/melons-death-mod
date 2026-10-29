@@ -1,0 +1,154 @@
+{
+  "geode": "5.0.0",
+  "gd": {
+    "win": "2.2081",
+    "android": "2.2081",
+    "mac": "2.2081",
+    "ios": "2.2081"
+  },
+  "version": "v1.0.0",
+  "id": "melongg3.melons-death-mod",
+  "name": "Melons Death Mod",
+  "developer": "MelonGG3",
+  "description": "Joke mod: on a new best there's a chance a sound plays, and when it ends, you die.",
+  "tags": ["fun", "joke", "gameplay"],
+  "settings": {
+    "enabled": {
+      "type": "bool",
+      "name": "Enabled",
+      "description": "Master switch for the whole mod.",
+      "default": true
+    },
+    "chance-mode": {
+      "type": "string",
+      "name": "Chance Mode",
+      "description": "<cy>Custom %</c>: uses the 'Chance' setting.\n<cy>Randomized %</c>: every new best rolls a random chance between the min and max below.",
+      "default": "Custom %",
+      "one-of": ["Custom %", "Randomized %"]
+    },
+    "chance": {
+      "type": "float",
+      "name": "Chance (%)",
+      "description": "Chance that a new best triggers the audio (Custom % mode).",
+      "default": 10.0,
+      "min": 0.0,
+      "max": 100.0,
+      "control": { "arrows": true, "slider": true, "input": true, "arrow-step": 1.0 }
+    },
+    "random-min": {
+      "type": "float",
+      "name": "Randomized: Min (%)",
+      "description": "Lowest chance that can be rolled in Randomized % mode.",
+      "default": 0.0,
+      "min": 0.0,
+      "max": 100.0,
+      "control": { "arrows": true, "slider": false, "input": true, "arrow-step": 1.0 }
+    },
+    "random-max": {
+      "type": "float",
+      "name": "Randomized: Max (%)",
+      "description": "Highest chance that can be rolled in Randomized % mode.",
+      "default": 100.0,
+      "min": 0.0,
+      "max": 100.0,
+      "control": { "arrows": true, "slider": false, "input": true, "arrow-step": 1.0 }
+    },
+    "freeze": {
+      "type": "bool",
+      "name": "Freeze Until Audio Ends",
+      "description": "Freezes the icon (the whole level) while the audio plays. If off, you keep playing and can still die early.",
+      "default": true
+    },
+    "kill-on-end": {
+      "type": "bool",
+      "name": "Kill When Audio Ends",
+      "description": "Kills you the moment the audio finishes.",
+      "default": true
+    },
+    "min-percent": {
+      "type": "int",
+      "name": "Minimum Best (%)",
+      "description": "The new best must be at least this percent to be able to trigger.",
+      "default": 0,
+      "min": 0,
+      "max": 99,
+      "control": { "arrows": true, "slider": true, "input": true }
+    },
+    "cooldown": {
+      "type": "int",
+      "name": "Cooldown (attempts)",
+      "description": "Attempts that must pass after a trigger before it can trigger again. 0 = no cooldown.",
+      "default": 0,
+      "min": 0,
+      "max": 500,
+      "control": { "arrows": true, "slider": false, "input": true }
+    },
+    "practice": {
+      "type": "bool",
+      "name": "Work In Practice Mode",
+      "description": "Triggers on new practice-mode bests too.",
+      "default": false
+    },
+    "custom-audio": {
+      "type": "file",
+      "name": "Custom Audio",
+      "description": "Pick your own mp3/ogg/wav. Leave empty to use the built-in sound.",
+      "default": "",
+      "control": {
+        "dialog": "open",
+        "filters": [{ "description": "Audio files", "files": ["*.mp3", "*.ogg", "*.wav"] }]
+      }
+    },
+    "volume": {
+      "type": "float",
+      "name": "Volume (%)",
+      "description": "Volume of the audio. Above 100 amplifies it (careful!).",
+      "default": 100.0,
+      "min": 0.0,
+      "max": 300.0,
+      "control": { "arrows": true, "slider": true, "input": true, "arrow-step": 10.0 }
+    },
+    "start-offset": {
+      "type": "float",
+      "name": "Audio Start (sec)",
+      "description": "Start playing from this point in the audio. Works on custom audio too.",
+      "default": 0.0,
+      "min": 0.0,
+      "max": 600.0,
+      "control": { "arrows": true, "slider": false, "input": true, "arrow-step": 0.1 }
+    },
+    "end-offset": {
+      "type": "float",
+      "name": "Audio End (sec)",
+      "description": "Stop (and kill) at this point in the audio. 0 = play to the end of the file.",
+      "default": 0.0,
+      "min": 0.0,
+      "max": 600.0,
+      "control": { "arrows": true, "slider": false, "input": true, "arrow-step": 0.1 }
+    },
+    "pause-music": {
+      "type": "bool",
+      "name": "Pause Level Music",
+      "description": "Pauses the level music while the audio plays.",
+      "default": true
+    },
+    "flash": {
+      "type": "bool",
+      "name": "Screen Flash",
+      "description": "Flashes the screen when it triggers.",
+      "default": true
+    },
+    "flash-color": {
+      "type": "color",
+      "name": "Flash Color",
+      "description": "Color of the screen flash.",
+      "default": "#FFFFFF"
+    },
+    "notify": {
+      "type": "bool",
+      "name": "Show Trigger Message",
+      "description": "Shows a small text on screen when it triggers (handy for testing).",
+      "default": false
+    }
+  }
+}
